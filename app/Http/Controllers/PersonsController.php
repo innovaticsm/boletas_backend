@@ -79,15 +79,16 @@ class PersonsController extends Controller
             } else {
                 try {
                     DB::beginTransaction();
-                    $model = personas::create([
-                        'idIdentificacion'      => $params_array['idIdentificacion'],
-                        'Identificacion'        => $params_array['Identificacion'],
-                        'Nombres'               => $params_array['Nombres'],
-                        'Apellidos'             => $params_array['Apellidos'],
-                        'Telefonos'             => $params_array['Telefonos'],
-                        'Email'                 => $params_array['Email'],
-                        'Estado'                => $params_array['Estado']
-                    ]);
+                    $model = personas::create($params_array);
+                    // $model = personas::create([
+                    //     'idIdentificacion'      => $params_array['idIdentificacion'],
+                    //     'Identificacion'        => $params_array['Identificacion'],
+                    //     'Nombres'               => $params_array['Nombres'],
+                    //     'Apellidos'             => $params_array['Apellidos'],
+                    //     'Telefonos'             => $params_array['Telefonos'],
+                    //     'Email'                 => $params_array['Email'],
+                    //     'Estado'                => $params_array['Estado']
+                    // ]);
                     $retorna = array(
                         'code' => '200',
                         'status' => 'success',
@@ -180,15 +181,16 @@ class PersonsController extends Controller
             } else {
                 try {
                     DB::beginTransaction();
-                    $model=personas::find($id);
-                    $model->idIdentificacion =  $params_array['idIdentificacion'];
-                    $model->Identificacion =  $params_array['Identificacion'];
-                    $model->Nombres =  $params_array['Nombres'];
-                    $model->Apellidos =  $params_array['Apellidos'];
-                    $model->Telefonos =  $params_array['Telefonos'];
-                    $model->Email =  $params_array['Email'];
-                    $model->Estado =  $params_array['Estado'];
-                    $model->save();
+                    personas::find($id)->update($params_array);
+                    // $model=personas::find($id);
+                    // $model->idIdentificacion =  $params_array['idIdentificacion'];
+                    // $model->Identificacion =  $params_array['Identificacion'];
+                    // $model->Nombres =  $params_array['Nombres'];
+                    // $model->Apellidos =  $params_array['Apellidos'];
+                    // $model->Telefonos =  $params_array['Telefonos'];
+                    // $model->Email =  $params_array['Email'];
+                    // $model->Estado =  $params_array['Estado'];
+                    // $model->save();
                     $retorna = array(
                         'code' => '200',
                         'status' => 'success',

@@ -91,24 +91,25 @@ class eventosController extends Controller
             } else {
                 try {
                     DB::beginTransaction();
-                    $model = eventos::create([
-                        'Codigo'        => $params_array['Codigo'],
-                        'Nombre'        => $params_array['Nombre'],
-                        'FechaEvento'   => $params_array['FechaEvento'],
-                        'BoletasZona1'  => $params_array['BoletasZona1'],
-                        'BoletasZona2'  => $params_array['BoletasZona2'],
-                        'BoletasZona3'  => $params_array['BoletasZona3'],
-                        'BoletasZona4'  => $params_array['BoletasZona4'],
-                        'NombreZona1'   => $params_array['NombreZona1'],
-                        'NombreZona2'   => $params_array['NombreZona2'],
-                        'NombreZona3'   => $params_array['NombreZona3'],
-                        'NombreZona4'   => $params_array['NombreZona4'],
-                        'ValorZona1'    => $params_array['ValorZona1'],
-                        'ValorZona2'    => $params_array['ValorZona2'],
-                        'ValorZona3'    => $params_array['ValorZona3'],
-                        'ValorZona4'    => $params_array['ValorZona4'],
-                        'Estado'        => $params_array['Estado']
-                    ]);
+                    $model = eventos::create($params_array);
+                    // $model = eventos::create([
+                    //     'Codigo'        => $params_array['Codigo'],
+                    //     'Nombre'        => $params_array['Nombre'],
+                    //     'FechaEvento'   => $params_array['FechaEvento'],
+                    //     'BoletasZona1'  => $params_array['BoletasZona1'],
+                    //     'BoletasZona2'  => $params_array['BoletasZona2'],
+                    //     'BoletasZona3'  => $params_array['BoletasZona3'],
+                    //     'BoletasZona4'  => $params_array['BoletasZona4'],
+                    //     'NombreZona1'   => $params_array['NombreZona1'],
+                    //     'NombreZona2'   => $params_array['NombreZona2'],
+                    //     'NombreZona3'   => $params_array['NombreZona3'],
+                    //     'NombreZona4'   => $params_array['NombreZona4'],
+                    //     'ValorZona1'    => $params_array['ValorZona1'],
+                    //     'ValorZona2'    => $params_array['ValorZona2'],
+                    //     'ValorZona3'    => $params_array['ValorZona3'],
+                    //     'ValorZona4'    => $params_array['ValorZona4'],
+                    //     'Estado'        => $params_array['Estado']
+                    // ]);
                     $this->Boletas($model);
                     $retorna = array(
                         'code' => '200',
@@ -211,24 +212,25 @@ class eventosController extends Controller
             } else {
                 try {
                     DB::beginTransaction();
-                    $model=eventos::find($id);
-                    $model->Codigo =  $params_array['Codigo'];
-                    $model->Nombre =  $params_array['Nombre'];
-                    $model->FechaEvento =  $params_array['FechaEvento'];
-                    $model->BoletasZona1 =  $params_array['BoletasZona1'];
-                    $model->BoletasZona2 =  $params_array['BoletasZona2'];
-                    $model->BoletasZona3 =  $params_array['BoletasZona3'];
-                    $model->BoletasZona4 =  $params_array['BoletasZona4'];
-                    $model->NombreZona1 =  $params_array['NombreZona1'];
-                    $model->NombreZona2 =  $params_array['NombreZona2'];
-                    $model->NombreZona3 =  $params_array['NombreZona3'];
-                    $model->NombreZona4 =  $params_array['NombreZona4'];
-                    $model->ValorZona1 =  $params_array['ValorZona1'];
-                    $model->ValorZona2 =  $params_array['ValorZona2'];
-                    $model->ValorZona3 =  $params_array['ValorZona3'];
-                    $model->ValorZona4 =  $params_array['ValorZona4'];
-                    $model->Estado =  $params_array['Estado'];
-                    $model->save();
+                    eventos::find($id)->update($params_array);
+                    // $model=eventos::find($id);
+                    // $model->Codigo =  $params_array['Codigo'];
+                    // $model->Nombre =  $params_array['Nombre'];
+                    // $model->FechaEvento =  $params_array['FechaEvento'];
+                    // $model->BoletasZona1 =  $params_array['BoletasZona1'];
+                    // $model->BoletasZona2 =  $params_array['BoletasZona2'];
+                    // $model->BoletasZona3 =  $params_array['BoletasZona3'];
+                    // $model->BoletasZona4 =  $params_array['BoletasZona4'];
+                    // $model->NombreZona1 =  $params_array['NombreZona1'];
+                    // $model->NombreZona2 =  $params_array['NombreZona2'];
+                    // $model->NombreZona3 =  $params_array['NombreZona3'];
+                    // $model->NombreZona4 =  $params_array['NombreZona4'];
+                    // $model->ValorZona1 =  $params_array['ValorZona1'];
+                    // $model->ValorZona2 =  $params_array['ValorZona2'];
+                    // $model->ValorZona3 =  $params_array['ValorZona3'];
+                    // $model->ValorZona4 =  $params_array['ValorZona4'];
+                    // $model->Estado =  $params_array['Estado'];
+                    // $model->save();
                     $this->Boletas($model);
                     $retorna = array(
                         'code' => '200',
